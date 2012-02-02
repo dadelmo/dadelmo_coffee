@@ -25,6 +25,9 @@ class CustomerOrdersController < ApplicationController
   # GET /customer_orders/new.xml
   def new
     @customer_order = CustomerOrder.new
+    @order = Order.first(:conditions => {:status => :open})
+
+    @customer_order.order = @order 
 
     respond_to do |format|
       format.html # new.html.erb

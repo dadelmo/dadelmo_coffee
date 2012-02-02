@@ -23,6 +23,10 @@
     <%= f.label :total_in_cents %><br />
     <%= f.text_field :total_in_cents %>
   </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= select_tag :status, options_for_select(%w{ open ordered shipped }) %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

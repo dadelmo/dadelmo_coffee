@@ -9,7 +9,12 @@
       <% end %>
       </ul>
     </div>
+    
   <% end %>
+
+  Order <%= @order.order_date %>
+  <%= f.hidden_field :order_id %>
+
 
   <div class="actions">
     <%= f.submit %>

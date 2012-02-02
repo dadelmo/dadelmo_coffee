@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20120202182121) do
     t.datetime "updated_at"
   end
 
-  create_table "customer_orders_products", :force => true do |t|
+  create_table "customer_orders_products", :id => false, :force => true do |t|
     t.integer "product_id"
     t.integer "customer_order_id"
   end
