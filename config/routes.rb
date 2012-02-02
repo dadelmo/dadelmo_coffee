@@ -1,4 +1,10 @@
 DadelmoCoffee::Application.routes.draw do
+  resources :customer_orders
+
+  resources :orders
+
+  resources :products
+
   resources :users
 
   # The priority is based upon order of creation:

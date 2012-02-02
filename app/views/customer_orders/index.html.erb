@@ -1,0 +1,21 @@
+<h1>Listing customer_orders</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @customer_orders.each do |customer_order| %>
+  <tr>
+    <td><%= link_to 'Show', customer_order %></td>
+    <td><%= link_to 'Edit', edit_customer_order_path(customer_order) %></td>
+    <td><%= link_to 'Destroy', customer_order, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Customer order', new_customer_order_path %>
