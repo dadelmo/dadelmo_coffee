@@ -16,6 +16,11 @@
   <%= f.hidden_field :order_id %>
 
 
+
+  <%= select_tag :products, options_from_collection_for_select(@products, :id, :name) %>
+
+  <%= text_field_tag :qty %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

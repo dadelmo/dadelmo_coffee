@@ -28,6 +28,7 @@ class CustomerOrdersController < ApplicationController
     @order = Order.first(:conditions => {:status => :open})
 
     @customer_order.order = @order 
+    @products = Product.all
 
     respond_to do |format|
       format.html # new.html.erb
