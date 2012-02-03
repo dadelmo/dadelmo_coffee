@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def account
+    @user = signed_in_user
+    
+  end
+
   # GET /users/new
   # GET /users/new.xml
   def new
