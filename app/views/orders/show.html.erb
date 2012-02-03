@@ -15,6 +15,13 @@
   <%= @order.total_in_cents %>
 </p>
 
+<% @order.customer_orders.each do |co| %>
+<p>
+  <b>Order:</b>
+  <%= co.id %>
+</p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
