@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       user = User.create (:email => params[:session][:email])
     end
     sign_in user
-    redirect_to user
+    redirect_to account_show_path
   end
 
   def destroy

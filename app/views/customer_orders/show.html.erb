@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% @customer_order.customer_order_line_products.each do |p| %>
+Producto
+<% end %>
+
 
 <%= link_to 'Edit', edit_customer_order_path(@customer_order) %> |
 <%= link_to 'Back', customer_orders_path %>

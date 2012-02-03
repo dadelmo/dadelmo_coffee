@@ -1,2 +1,16 @@
 <h1>Account#show</h1>
 <p>Find me in app/views/account/show.html.erb</p>
+
+<% unless @open_customer_order.nil? %>
+<p><%= link_to 'Modificar', edit_customer_order_path(@open_customer_order) %> orden <%= @open_customer_order.id %></p>
+ 
+<% end %>
+<% unless @open_order.nil? %>
+<% form_for(:customer_order, :url => customer_orders_path) do |f| %>
+<%= f.hidden_field :order_id, :value =>  @open_order.id %>
+<%= f.hidden_field :user_id, :value => signed_in_user.id %>
+<%= f.submit "Agregar cápsulas a un pedido "%>
+<% end %>
+
+<% end %>
+	

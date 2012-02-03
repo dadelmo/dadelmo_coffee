@@ -16,7 +16,6 @@ DadelmoCoffee::Application.routes.draw do
 
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-  match '/account', :to => 'user#show'
 
 
   # The priority is based upon order of creation:

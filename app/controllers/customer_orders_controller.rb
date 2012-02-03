@@ -25,10 +25,7 @@ class CustomerOrdersController < ApplicationController
   # GET /customer_orders/new.xml
   def new
     @customer_order = CustomerOrder.new
-    @order = Order.first(:conditions => {:status => :open})
 
-    @customer_order.order = @order 
-    @products = Product.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,13 +36,15 @@ class CustomerOrdersController < ApplicationController
   # GET /customer_orders/1/edit
   def edit
     @customer_order = CustomerOrder.find(params[:id])
+    @products = Product.all
+
   end
 
   # POST /customer_orders
   # POST /customer_orders.xml
   def create
     @customer_order = CustomerOrder.new(params[:customer_order])
-
+    @customer_order.user = signed_in_user
     respond_to do |format|
       if @customer_order.save
         format.html { redirect_to(@customer_order, :notice => 'Customer order was successfully created.') }
