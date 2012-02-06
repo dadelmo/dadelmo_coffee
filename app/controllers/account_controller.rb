@@ -9,7 +9,7 @@ class AccountController < ApplicationController
     @products = Product.all
 
     @customer_orders.each do |co|
-      @open_customer_order = co if co.order.status == 'open'
+      @open_customer_order = co if !co.order.nil? && co.order.status == 'open'
     end
 
     @open_order = Order.first(:conditions => {:status => :open}) if @open_customer_order.nil?
