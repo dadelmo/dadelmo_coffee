@@ -106,7 +106,7 @@ class CustomerOrdersController < ApplicationController
   def delete_item
     cid = params[:customer_order][:id]
     pid =  params[:customer_order][:p_id]
-    colp = CustomerOrderLineProduct.find_by_customer_order_id_and_product_id (cid, pid)
+    colp = CustomerOrderLineProduct.where(:customer_order_id => cid, :product_id => pid).first
     colp.destroy unless colp.nil? 
     redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id]) 
   end
