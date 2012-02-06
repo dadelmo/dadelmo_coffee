@@ -23,5 +23,17 @@
 
 <% end %>
 
+Orden
+
+<table>
+<% @order_items.each do |k,v| %>
+	<tr>
+		<td><%= v %></td>
+		<td><%= k.name %></td>
+	</tr>
+<% end %>
+</table>
+<h2>Total <%= "#{@total_order.to_f/100}€" %></h2>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

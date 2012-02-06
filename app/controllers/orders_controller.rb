@@ -14,11 +14,15 @@ class OrdersController < ApplicationController
   # GET /orders/1.xml
   def show
     @order = Order.find(params[:id])
+    @total_order = @order.customer_orders.map(&:customer_order_line_products).flatten.map(&:price_per_item_in_cents).sum
+    @order_items = @order.customer_orders.map(&:customer_order_line_products).flatten.group_by(&:product_id).map {|k,v| [Product.find (k),v.map(&:qty).sum]}
 
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @order }
     end
+    
+    
   end
 
   # GET /orders/new
