@@ -5,9 +5,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email params[:session][:email]
+    email = params[:session][:email]
+    user = User.find_by_email email
     if user.nil?
-      user = User.create(:email => params[:session][:email])
+      user = User.create(:email => email)
     end
     sign_in user
     redirect_to account_show_path
