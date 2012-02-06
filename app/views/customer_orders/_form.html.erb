@@ -11,7 +11,7 @@
     
   <% end %>
 
-Orden a pedirse el día <%= @customer_order.order.order_date %>
+Orden a pedirse el día <%= @customer_order.order.order_date %> <br/>
 Entrega tentativa: <%= @customer_order.order.delivery_date %>
 <%= form_for(:customer_order, :url => add_item_path) do |f| %>
   <%= f.hidden_field :id, :value => @customer_order.id %>
