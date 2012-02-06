@@ -74,11 +74,15 @@ class CustomerOrdersController < ApplicationController
   
   def add_item
     product = Product.find(params[:p_id])
+    cid = params[:customer_order][:id]
+    pid =  params[:p_id]
+    pqty = params[:p_qty]
+    price = product.price_in_cents
     colp = CustomerOrderLineProduct.new (
-      :customer_order_id => params[:customer_order][:id],
-      :product_id => params[:p_id],
-      :qty => params[:p_qty],
-      :price_per_item_in_cents => product.price_in_cents
+      :customer_order_id => cid,
+      :product_id => pid,
+      :qty => pqty,
+      :price_per_item_in_cents => price
     )
     colp.save!
     
