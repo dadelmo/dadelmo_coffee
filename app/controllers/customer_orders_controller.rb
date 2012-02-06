@@ -78,12 +78,12 @@ class CustomerOrdersController < ApplicationController
     pid =  params[:p_id]
     pqty = params[:p_qty]
     price = product.price_in_cents
-    colp = CustomerOrderLineProduct.new (
+    colp = CustomerOrderLineProduct.new ({
       :customer_order_id => cid,
       :product_id => pid,
       :qty => pqty,
       :price_per_item_in_cents => price
-    )
+    })
     colp.save!
     
     redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id]) 
