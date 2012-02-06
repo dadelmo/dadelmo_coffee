@@ -83,10 +83,10 @@ class CustomerOrdersController < ApplicationController
     end    
     product = Product.find(params[:p_id])
     cid = params[:customer_order][:id]
-    pid =  params[:p_id]
+    pid = params[:p_id]
     pqty = params[:p_qty]
     price = product.price_in_cents
-    colp = CustomerOrderLineProduct.find_by_customer_order_id_and_product_id (cid, pid)
+    colp = CustomerOrderLineProduct.where(:customer_order_id => cid, :product_id => pid).first
     if colp.nil?
       colp = CustomerOrderLineProduct.new ({
         :customer_order_id => cid,
