@@ -1,8 +1,19 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>User <%= @customer_order.user.email unless @customer_order.user.nil? %></p>
+
+<table>
 <% @customer_order.customer_order_line_products.each do |p| %>
-Producto
+	<tr>
+		<td><%= p.product.name %></td>
+		<td><%= p.qty %></td>
+		<td><%= p.price_per_item_in_cents %></td>
+	</tr>
 <% end %>
+<table>
+	
+<h2>Total <%= "#{@total.to_f/100}€" %></h2>
 
 
 <%= link_to 'Edit', edit_customer_order_path(@customer_order) %> |

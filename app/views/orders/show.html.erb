@@ -17,8 +17,8 @@
 
 <% @order.customer_orders.each do |co| %>
 <p>
-  <b>Order:</b>
-  <%= co.id %>
+  <b>Customer Order:</b>
+  <%= link_to "#{co.id}", co %> <b>Email:</b> <%= co.user.email unless co.user.nil? %>
 </p>
 
 <% end %>

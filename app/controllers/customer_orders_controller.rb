@@ -14,6 +14,7 @@ class CustomerOrdersController < ApplicationController
   # GET /customer_orders/1.xml
   def show
     @customer_order = CustomerOrder.find(params[:id])
+    @total = @customer_order.customer_order_line_products.map(&:price_per_item_in_cents).sum
 
     respond_to do |format|
       format.html # show.html.erb
