@@ -21,4 +21,8 @@ module SessionsHelper
   def sign_in?
     !signed_in_user.nil?
   end
+  
+  def deny_access
+    redirect_to signin_path, :notice => "Por favor, conectacte"
+  end
 end

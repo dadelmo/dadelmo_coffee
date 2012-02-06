@@ -71,6 +71,20 @@ class CustomerOrdersController < ApplicationController
       end
     end
   end
+  
+  def add_item
+    product = Product.find(params[:p_id])
+    colp = CustomerOrderLineProduct.new (
+      :customer_order_id => params[:customer_order][:id],
+      :product_id => params[:p_id],
+      :qty => params[:p_qty],
+      :price_per_item_in_cents => product.price_in_cents
+    )
+    colp.save!
+    
+    redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id]) 
+  end
+
 
   # DELETE /customer_orders/1
   # DELETE /customer_orders/1.xml
