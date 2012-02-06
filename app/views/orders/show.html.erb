@@ -29,7 +29,7 @@ Orden
 <% @order_items.each do |k,v| %>
 	<tr>
 		<td><%= v %></td>
-		<td><%= k.name %></td>
+		<td><%= (Product.find k).name %></td>
 	</tr>
 <% end %>
 </table>

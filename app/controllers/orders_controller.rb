@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     @total_order = @order.customer_orders.map(&:customer_order_line_products).flatten.map(&:price_per_item_in_cents).sum
-    @order_items = @order.customer_orders.map(&:customer_order_line_products).flatten.group_by(&:product_id).map {|k,v| [Product.find (k),v.map(&:qty).sum]}
+    @order_items = @order.customer_orders.map(&:customer_order_line_products).flatten.group_by(&:product_id).map {|k,v| [k,v.map(&:qty).sum]}
 
     respond_to do |format|
       format.html # show.html.erb
