@@ -11,7 +11,7 @@
     
   <% end %>
 
-  Order <%= @customer_order.order.order_date %>
+Orden a pedirse el día <%= @customer_order.order.order_date %>
 <%= form_for(:customer_order, :url => add_item_path) do |f| %>
   <%= f.hidden_field :id, :value => @customer_order.id %>
 
@@ -21,10 +21,10 @@
 
   <%= text_field_tag :p_qty %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit "Agregar cápsulas" %>
 <% end %>
+
+<% unless @customer_order.customer_order_line_products.empty? %>
 
 <table>
 
@@ -40,8 +40,21 @@
   <tr>
 	<td><%= "#{colp.product.name}" %></td> 
 	<td><%= "#{colp.qty}" %></td> 
-	<td><%= "#{(colp.price_per_item_in_cents*colp.qty).to_f/100}€" %></td> 
-	<td></td> 
+	<td><%= "#{(colp.price_per_item_in_cents).to_f/100}€" %></td> 
+    <%= form_for(:customer_order, :url => delete_item_path) do |f| %>
+    <%= f.hidden_field :id, :value => @customer_order.id %>
+    <%= f.hidden_field :p_id, :value => colp.product_id %>
+
+	<td><%= f.submit "Borrar" %></td> 
+	<% end %>
+	
   </tr>
 <% end %>
+  <tr>
+    <th>Total <%= "#{@total.to_f/100}€" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 </table>
+<% end %>

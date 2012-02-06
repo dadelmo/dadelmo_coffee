@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def authenticate
     deny_access unless sign_in?
   end
+
+  def index
+    redirect_to signin_path
+  end
+
 end

@@ -1,15 +1,14 @@
-<h1>Account#show</h1>
-<p>Find me in app/views/account/show.html.erb</p>
+<h2>Cuenta</h2>
 
 <% unless @open_customer_order.nil? %>
-<p><%= link_to 'Modificar', edit_customer_order_path(@open_customer_order) %> orden <%= @open_customer_order.id %></p>
+<p><%= link_to 'Modifica', edit_customer_order_path(@open_customer_order) %> el pedido para el día  <%= @open_customer_order.order.order_date %></p>
  
 <% end %>
 <% unless @open_order.nil? %>
 <% form_for(:customer_order, :url => customer_orders_path) do |f| %>
 <%= f.hidden_field :order_id, :value =>  @open_order.id %>
 <%= f.hidden_field :user_id, :value => signed_in_user.id %>
-<%= f.submit "Agregar cápsulas a un pedido "%>
+<%= f.submit "Agregar cápsulas a un pedido"%>
 <% end %>
 
 <% end %>
