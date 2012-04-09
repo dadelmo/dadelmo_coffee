@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     email = params[:session][:email]
     if email.blank?
-      flash[:error] = 'El email no puede ser vacío'
+      flash[:error] = 'El email no puede ser vacio'
       redirect_to root_path
       return
     end
