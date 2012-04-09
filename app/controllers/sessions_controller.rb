@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email email
     if user.nil?
       user = User.create(:email => email)
-      flash[:success] = "Te has dado de alta ¡Bienvenido #{email}!"
+      flash[:success] = "Te has dado de alta. Bienvenido #{email}"
     end
     sign_in user
     redirect_to account_show_path
