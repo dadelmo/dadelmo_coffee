@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  before_filter :check_admin
   # GET /users
   # GET /users.xml
   def index
@@ -24,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
+    @roles = Role.all
     @user = User.new
 
     respond_to do |format|
@@ -34,6 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @roles = Role.all
     @user = User.find(params[:id])
   end
 

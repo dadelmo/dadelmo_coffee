@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+
+  before_filter :check_admin
   # GET /orders
   # GET /orders.xml
   def index

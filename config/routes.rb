@@ -14,6 +14,8 @@ DadelmoCoffee::Application.routes.draw do
 
   resources :users
 
+  resources :roles
+
   resources :sessions, :only => [:new, :create, :destroy]
 
 
@@ -21,6 +23,7 @@ DadelmoCoffee::Application.routes.draw do
   match '/delete_item', :to => 'customer_orders#delete_item'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
+  match '/admin_panel', :to => 'admin#index'
 
 
   # The priority is based upon order of creation:

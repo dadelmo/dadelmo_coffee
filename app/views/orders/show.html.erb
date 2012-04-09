@@ -15,6 +15,12 @@
   <%= @order.total_in_cents %>
 </p>
 
+<p>
+  <b>Status:</b>
+  <%= @order.status %>
+</p>
+
+
 <% @order.customer_orders.each do |co| %>
 <p>
   <b>Customer Order:</b>

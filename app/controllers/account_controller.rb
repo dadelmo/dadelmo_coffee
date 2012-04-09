@@ -13,6 +13,7 @@ class AccountController < ApplicationController
     end
 
     @open_order = Order.first(:conditions => {:status => :open}) if @open_customer_order.nil?
+    @prev_orders = Order.all(:conditions => {:status => :open}) if @open_customer_order.nil?
     
   end
 
