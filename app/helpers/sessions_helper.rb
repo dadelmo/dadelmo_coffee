@@ -31,4 +31,9 @@ module SessionsHelper
       redirect_to account_show_path, :notice => "Acceso restringido" unless (signed_in_user.email == 'dadelmo@gmail.com' || signed_in_user.email == 'daniel@alice.com')
   end
 
+  def is_admin?
+      signed_in_user.email == 'dadelmo@gmail.com' || signed_in_user.email == 'daniel@alice.com'
+  end
+  end
+
 end

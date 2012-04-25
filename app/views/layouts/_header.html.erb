@@ -3,7 +3,9 @@
 		<% if sign_in? %>
 		<ul>
 		<li><%= link_to signed_in_user.email, account_show_path %></li>
+		<% if is_admin? %>
 		<li><%= link_to "Panel Admin", admin_panel_path %></li>
+		<% end %>
 		<li><%= link_to "Sign Out", signout_path %></li>
 		</ul>
 		
