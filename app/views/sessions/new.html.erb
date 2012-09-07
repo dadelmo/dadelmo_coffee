@@ -1,14 +1,13 @@
-<h2>Signin</h2>
+<h2>Bienvenido</h2>
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
 
-
-<div class="field">
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+<div class="field signin">
+	<%= f.label :email  %>
+	<%= f.email_field :email %>
 </div>
 
-<div class="action">
+<div class="action signin">
 	<%= f.submit "Conectar" %>	
 </div>
 <% end %>

@@ -3,7 +3,8 @@
 }
 
 body {
-	background: #5882FA;
+	background: rgb(127,98,101);
+	background: rgb(255,233,214);
 }
 
 header {
@@ -12,19 +13,39 @@ header {
 
 header-img {
 	padding: 1em;
-	background: #fff;
 }
 
 header h1 {
 	font-size: 400%;
+	color: rgb(255,162,86);
+	color: rgb(127,98,101);
+	text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.2);
+	font-weight:bold;
 }
 
+#main {
+	min-height: 200px;
+
+}
+
+section#main h2 {
+	font-size: 200%;
+	color: rgb(255,162,86);
+	color: rgb(127,98,101);
+	color: rgb(245,173,115);
+	color: rgb(247,242,223);
+	font-weight:bold;
+
+	text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.2);
+}
 
 section {
 	margin-top: 1em;
 	font-size: 120%;
 	padding: 20px;
-	background: #fff;
+	background: rgb(224,208,84);
+	background: rgb(247,221,119);
+	background: rgb(171,167,60);
 }
 
 section h1 {
@@ -32,11 +53,10 @@ section h1 {
 }
 
 a {
-	color: #09c;
 	text-decoration: none;
 }
 a:hover {
-	color: #09c;
+	color: rgb(196,109,59);
 	text-decoration: underline;
 }
 
@@ -49,7 +69,8 @@ nav {
 }
 
 nav {
-	background-color: white;
+	background: rgb(227,203,172);
+	background: rgb(127,98,101);
 	padding: 0 0.7em;
 	white-space: nowrap;
 }
@@ -68,14 +89,16 @@ nav ul li {
 nav ul li a {
 	padding: 0 5px;
 	font-weight: bold;
+	color: rgb(245,173,115);
 }
 
 nav ul li a:visited{
-	color: #09c;
+	color: rgb(245,173,115);
 }
 
 nav ul li a:hover {
 	text-decoration: underline;
+	background: rgb(127,98,101);
 }
 
 footer {
@@ -89,8 +112,51 @@ footer {
 footer nav {
 	float: none;
 }
+
+input {
+	background-color: rgb(156,153,133);
+}
+
 .round {
 	-moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
+}
+
+.field label {
+	font-size: 150%;
+	text-transform: lowercase;
+	color: rgb(247,242,223);
+	font-weight:normal;
+}
+
+.field input {
+	font-size: 150%;
+	border-color: rgb(0,0,0);
+	background: rgb(247	,242,223);
+	margin: 10px;
+	color: rgb(127,98,101);
+	border-style:solid;
+	border-width:0px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+}
+
+.action input {
+	font-size: 20px;
+	color: rgb(127,98,101);
+	background: rgb(224,208,84);
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+    width: 130px;
+}
+
+.signin {
+	display: inline;
 }
