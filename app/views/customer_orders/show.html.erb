@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Orden día <%= @customer_order.order.order_date %> </h2>
 
 <p>User <%= @customer_order.user.email unless @customer_order.user.nil? %></p>
 
@@ -16,5 +17,9 @@
 <h2>Total <%= "#{@total.to_f/100}€" %></h2>
 
 
-<%= link_to 'Edit', edit_customer_order_path(@customer_order) %> |
-<%= link_to 'Back', customer_orders_path %>
+<% if is_admin? %>
+	<%= link_to 'Edit', edit_customer_order_path(@customer_order) %> |
+	<%= link_to 'Back', customer_orders_path %> |
+<% end %>
+<%= link_to 'Account', root_path %>
+

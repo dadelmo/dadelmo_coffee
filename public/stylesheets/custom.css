@@ -23,6 +23,11 @@ header h1 {
 	font-weight:bold;
 }
 
+header a:hover {
+	text-decoration: none;
+}
+
+
 #main {
 	min-height: 200px;
 
@@ -73,6 +78,7 @@ nav {
 	background: rgb(127,98,101);
 	padding: 0 0.7em;
 	white-space: nowrap;
+	color: rgb(245,173,115);
 }
 
 nav ul {
@@ -89,7 +95,6 @@ nav ul li {
 nav ul li a {
 	padding: 0 5px;
 	font-weight: bold;
-	color: rgb(245,173,115);
 }
 
 nav ul li a:visited{
@@ -124,18 +129,19 @@ input {
 }
 
 .field label {
-	font-size: 150%;
+	font-size: 24px;
 	text-transform: lowercase;
 	color: rgb(247,242,223);
 	font-weight:normal;
 }
 
 .field input {
-	font-size: 150%;
+	font-size: 24px;
 	border-color: rgb(0,0,0);
-	background: rgb(247	,242,223);
+	background: rgb(247,242,223);
 	margin: 10px;
-	color: rgb(127,98,101);
+	padding: 4px;
+	color: rgb(87,85,30);
 	border-style:solid;
 	border-width:0px;
 	-moz-border-radius: 5px;
@@ -144,17 +150,22 @@ input {
 
 }
 
-.action input {
-	font-size: 20px;
-	color: rgb(127,98,101);
+input[type="submit"] {
+	font-size:16px;
+	color: rgb(87,85,30);
 	background: rgb(224,208,84);
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
+	-moz-border-radius: 48px;
+	-webkit-border-radius: 48px;
+	border-radius: 48px;
     margin-left: auto;
     margin-right: auto;
-    height: 35px;
-    width: 130px;
+    border:1px solid rgb(87,85,30);
+    padding:8px 18px;
+	background:-webkit-linear-gradient(top, rgb(247,242,223) 0%,rgb(232,220,176) 100%);
+}
+input[type="submit"]:hover {
+	background:-webkit-linear-gradient(top, rgb(232,220,176) 0%,rgb(247,242,223) 100%);
+
 }
 
 .signin {

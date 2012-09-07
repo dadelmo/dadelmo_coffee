@@ -11,5 +11,13 @@
 <%= f.submit "Agregar cápsulas a un pedido"%>
 <% end %>
 
+
 <% end %>
 	
+<h2>Ordenes anteriores</h2>
+
+<% @prev_orders.each do |po| %>
+
+<%= link_to po.order.order_date, customer_order_path(po) %>
+
+<% end %>
