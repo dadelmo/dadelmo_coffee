@@ -20,7 +20,7 @@ Entrega tentativa: <%= @customer_order.order.delivery_date %>
 
   <%= select_tag :p_id, options_from_collection_for_select(@products, :id, :display_name) %>
 
-  <%= number_field_tag :p_qty, nil, :placeholder => 'Cantidad', :min => 0 %>
+  <%= number_field_tag :p_qty, nil, :placeholder => 'Cantidad', :autocomplete => 'off', :min => 0 %>
 
     <%= f.submit "Agregar cápsulas" %>
 <% end %>

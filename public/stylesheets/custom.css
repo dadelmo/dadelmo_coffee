@@ -35,14 +35,20 @@ header a:hover {
 
 section#main h2 {
 	font-size: 200%;
-	color: rgb(255,162,86);
-	color: rgb(127,98,101);
-	color: rgb(245,173,115);
 	color: rgb(247,242,223);
 	font-weight:bold;
 
 	text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.2);
 }
+
+section#main h3 {
+	font-size: 130%;
+		color: rgb(247,242,223);
+	font-weight:bold;
+
+	text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
 
 section {
 	margin-top: 1em;
@@ -95,6 +101,7 @@ nav ul li {
 nav ul li a {
 	padding: 0 5px;
 	font-weight: bold;
+	color: rgb(245,173,115);
 }
 
 nav ul li a:visited{
@@ -103,6 +110,7 @@ nav ul li a:visited{
 
 nav ul li a:hover {
 	text-decoration: underline;
+	color: rgb(245,173,115);
 	background: rgb(127,98,101);
 }
 
@@ -161,10 +169,18 @@ input[type="submit"] {
     margin-right: auto;
     border:1px solid rgb(87,85,30);
     padding:8px 18px;
+	background:-moz-linear-gradient(top, rgb(247,242,223) 0%,rgb(232,220,176) 100%);
 	background:-webkit-linear-gradient(top, rgb(247,242,223) 0%,rgb(232,220,176) 100%);
+	background:-o-linear-gradient(top, rgb(247,242,223) 0%,rgb(232,220,176) 100%);
+	background:-ms-linear-gradient(top, rgb(247,242,223) 0%,rgb(232,220,176) 100%);
+	background:linear-gradient(top, rgb(247,242,223) 0%,rgb(232,220,176) 100%);
 }
 input[type="submit"]:hover {
+	background:-moz-linear-gradient(top, rgb(232,220,176) 0%,rgb(247,242,223) 100%);
 	background:-webkit-linear-gradient(top, rgb(232,220,176) 0%,rgb(247,242,223) 100%);
+	background:-o-linear-gradient(top, rgb(232,220,176) 0%,rgb(247,242,223) 100%);
+	background:-ms-linear-gradient(top, rgb(232,220,176) 0%,rgb(247,242,223) 100%);
+	background:linear-gradient(top, rgb(232,220,176) 0%,rgb(247,242,223) 100%);
 
 }
 

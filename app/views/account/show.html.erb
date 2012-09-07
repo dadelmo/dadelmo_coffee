@@ -1,6 +1,9 @@
 <h2>Cuenta</h2>
 
+
+
 <% unless @open_customer_order.nil? %>
+<h3>Ordenes Actuales</h3>
 <p><%= link_to 'Modifica', edit_customer_order_path(@open_customer_order) %> el pedido para el día  <%= @open_customer_order.order.order_date %></p>
  
 <% end %>
@@ -13,9 +16,12 @@
 
 
 <% end %>
-	
-<h2>Ordenes anteriores</h2>
 
+<% unless @prev_orders.empty? %>	
+
+	<h3>Ordenes anteriores</h3>
+
+<% end %>
 <% @prev_orders.each do |po| %>
 
 <%= link_to po.order.order_date, customer_order_path(po) %>
