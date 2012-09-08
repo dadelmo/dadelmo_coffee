@@ -5,16 +5,28 @@
 <p>User <%= @customer_order.user.email unless @customer_order.user.nil? %></p>
 
 <table>
+  <thead>
+	<tr>
+		<th>Cápsula</th>
+		<th>Cantidad</th>
+		<th>Precio</th>		
+	</tr>
+  </thead>
+  <tbody>
 <% @customer_order.customer_order_line_products.each do |p| %>
 	<tr>
 		<td><%= p.product.name %></td>
 		<td><%= p.qty %></td>
-		<td><%= p.price_per_item_in_cents %></td>
+		<td><%= "#{p.price_per_item_in_cents/100.0}€" %></td>
 	</tr>
 <% end %>
+  </tbody>
+  <tfoot>
+  	<tr>
+  		<td colspan='3'>Total <%= "#{@total.to_f/100}€" %></td>
+  	</tr>
+  </tfoot>
 <table>
-	
-<h2>Total <%= "#{@total.to_f/100}€" %></h2>
 
 
 <% if is_admin? %>

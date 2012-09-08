@@ -212,3 +212,26 @@ select {
 select option{
 	background: rgba(247,242,223,0.5);
 }
+
+#main table  {
+	font-size: 18px;
+	color: rgb(87,85,30);
+	box-shadow: 3px 3px 10px rgb(87,85,30);
+}
+
+#main table tr:nth-child(even) td{
+	background: rgba(247,242,223,0.5);
+
+}
+
+#main table tfoot td, #main table thead th{
+	margin: 5px;
+	font-size: 20px;
+	padding: 10px;
+	background: rgb(87,85,30);
+	color: rgb(247,242,223);
+	font-weight:bold;
+
+	text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.2);
+}
+

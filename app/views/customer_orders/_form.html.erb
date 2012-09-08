@@ -29,14 +29,15 @@
 <% unless @customer_order.customer_order_line_products.empty? %>
 
 <table>
-
+ <thead>
   <tr>
     <th>Cápsula</th>
     <th>Cantidad</th>
     <th>Precio</th>
     <th></th>
   </tr>
-
+ </thead>
+ <tbody>
 <% @customer_order.customer_order_line_products.each do |colp| %>
 
   <tr>
@@ -52,6 +53,13 @@
 	
   </tr>
 <% end %>
+ </tbody>
+ <tfoot>
+  <tr>
+    <td colspan='4'>
+      Total <%= "#{@total.to_f/100}€" %>
+    </td>
+  </tr>
+ </tfoot>
 </table>
-<h3>Total <%= "#{@total.to_f/100}€" %></h3>
 <% end %>
