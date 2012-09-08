@@ -74,16 +74,18 @@ class CustomerOrdersController < ApplicationController
   end
   
   def add_item
+    @customer_order = CustomerOrder.find(params[:customer_order][:id])
+    @total = @customer_order.customer_order_line_products.map(&:price_per_item_in_cents).sum
     if params[:p_qty].blank?
-      redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id])  
+      redirect_to edit_customer_order_path(@customer_order)  
       return 
     end    
     if params[:p_qty].to_i.nil?
-      redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id])  
+      redirect_to edit_customer_order_path(@customer_order)  
       return 
     end    
     product = Product.find(params[:p_id])
-    cid = params[:customer_order][:id]
+    cid = @customer_order.id
     pid = params[:p_id]
     pqty = params[:p_qty]
     price = product.price_in_cents
@@ -100,16 +102,30 @@ class CustomerOrdersController < ApplicationController
       colp.price_per_item_in_cents = colp.product.price_in_cents * colp.qty
     end
     colp.save!
+
+    @customer_order = CustomerOrder.find(params[:customer_order][:id])
+    @total = @customer_order.customer_order_line_products.map(&:price_per_item_in_cents).sum
+    respond_to do |format|
+      format.html { redirect_to edit_customer_order_path(@customer_order)}
+      format.js
+    end
     
-    redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id]) 
+     
   end
 
   def delete_item
     cid = params[:customer_order][:id]
     pid =  params[:customer_order][:p_id]
-    colp = CustomerOrderLineProduct.where(:customer_order_id => cid, :product_id => pid).first
-    colp.destroy unless colp.nil? 
-    redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id]) 
+    @colp = CustomerOrderLineProduct.where(:customer_order_id => cid, :product_id => pid).first
+
+
+    @colp.destroy unless @colp.nil? 
+    @customer_order = CustomerOrder.find(params[:customer_order][:id])
+    @total = @customer_order.customer_order_line_products.map(&:price_per_item_in_cents).sum
+    respond_to do |format|
+      format.html { redirect_to edit_customer_order_path(CustomerOrder.find params[:customer_order][:id]) }
+      format.js
+    end
   end
 
 

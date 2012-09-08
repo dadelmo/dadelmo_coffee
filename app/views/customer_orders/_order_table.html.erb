@@ -1,0 +1,38 @@
+<% unless @customer_order.customer_order_line_products.empty? %>
+<table>
+ <thead>
+  <tr>
+    <th>Cápsula</th>
+    <th>Cantidad</th>
+    <th>Precio</th>
+    <th></th>
+  </tr>
+ </thead>
+ <tbody>
+<% @customer_order.customer_order_line_products.each do |colp| %>
+
+  <tr id="<%= "item_#{colp.id}" %>">
+	<td><%= "#{colp.product.name}" %></td> 
+	<td><%= "#{colp.qty}" %></td> 
+	<td><%= "#{(colp.price_per_item_in_cents).to_f/100}€" %></td> 
+
+	<td>
+    <%= form_for(:customer_order, :url => delete_item_path, :remote => true ) do |fdel| %>
+      <%= fdel.hidden_field :id, :value => @customer_order.id %>
+      <%= fdel.hidden_field :p_id, :value => colp.product_id %>
+      <%= fdel.submit "Borrar" %></td> 
+	  <% end %>
+  </td>
+	
+  </tr>
+<% end %>
+ </tbody>
+ <tfoot>
+  <tr>
+    <td colspan="4">
+      Total <%= "#{@total.to_f/100}€" %>
+    </td>
+  </tr>
+ </tfoot>
+</table>
+<% end %>

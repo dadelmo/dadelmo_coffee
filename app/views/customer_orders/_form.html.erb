@@ -14,7 +14,7 @@
 
 <p> Orden a pedirse el día <%= @customer_order.order.order_date %> </p> 
 <p> Entrega tentativa: <%= @customer_order.order.delivery_date %> </p> 
-<%= form_for(:customer_order, :url => add_item_path) do |f| %>
+<%= form_for(:customer_order, :url => add_item_path, :remote => true) do |f| %>
   <%= f.hidden_field :id, :value => @customer_order.id %>
 
  <br />
@@ -26,40 +26,7 @@
     <%= f.submit "Agregar cápsulas" %>
 <% end %>
   </div>
-<% unless @customer_order.customer_order_line_products.empty? %>
 
-<table>
- <thead>
-  <tr>
-    <th>Cápsula</th>
-    <th>Cantidad</th>
-    <th>Precio</th>
-    <th></th>
-  </tr>
- </thead>
- <tbody>
-<% @customer_order.customer_order_line_products.each do |colp| %>
-
-  <tr>
-	<td><%= "#{colp.product.name}" %></td> 
-	<td><%= "#{colp.qty}" %></td> 
-	<td><%= "#{(colp.price_per_item_in_cents).to_f/100}€" %></td> 
-    <%= form_for(:customer_order, :url => delete_item_path) do |f| %>
-    <%= f.hidden_field :id, :value => @customer_order.id %>
-    <%= f.hidden_field :p_id, :value => colp.product_id %>
-
-	<td><%= f.submit "Borrar" %></td> 
-	<% end %>
-	
-  </tr>
-<% end %>
- </tbody>
- <tfoot>
-  <tr>
-    <td colspan='4'>
-      Total <%= "#{@total.to_f/100}€" %>
-    </td>
-  </tr>
- </tfoot>
-</table>
-<% end %>
+<div id="items_table">
+<%= render 'order_table' %>
+<div>

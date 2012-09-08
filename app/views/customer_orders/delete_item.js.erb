@@ -1,0 +1,7 @@
+
+jQuery('#<%= "item_#{@colp.id}" %>').fadeOut(500, function() { 
+	jQuery('#items_table').html('<%= escape_javascript(render 'order_table') %>')}
+	);
+
+
+
