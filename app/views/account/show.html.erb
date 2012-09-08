@@ -11,7 +11,7 @@
 <% form_for(:customer_order, :url => customer_orders_path) do |f| %>
 <%= f.hidden_field :order_id, :value =>  @open_order.id %>
 <%= f.hidden_field :user_id, :value => signed_in_user.id %>
-<%= f.submit "Agregar cápsulas a un pedido"%>
+<%= f.submit "Agregar cápsulas a un pedido nuevo"%>
 <% end %>
 
 

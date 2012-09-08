@@ -10,6 +10,11 @@
   <%= @product.price_in_cents %>
 </p>
 
+<p>
+  <b>Active:</b>
+  <%= @product.active %>
+</p>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

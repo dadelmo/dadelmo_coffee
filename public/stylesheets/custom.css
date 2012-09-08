@@ -19,7 +19,7 @@ header h1 {
 	font-size: 400%;
 	color: rgb(255,162,86);
 	color: rgb(127,98,101);
-	text-shadow: 3px 3px 1px rgba(0, 0, 0, 0.2);
+	text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 	font-weight:bold;
 }
 
@@ -44,6 +44,13 @@ section#main h2 {
 section#main h3 {
 	font-size: 130%;
 		color: rgb(247,242,223);
+	font-weight:bold;
+
+	text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+section#main p {
+	color: rgb(247,242,223);
 	font-weight:bold;
 
 	text-shadow: 3px 2px 1px rgba(0, 0, 0, 0.2);
@@ -75,6 +82,11 @@ a:visited {
 	color: #069;
 }
 
+#main_nav{
+	position: relative;
+	top: 15px;
+}
+
 nav {
 	float: right;
 }
@@ -100,6 +112,7 @@ nav ul li {
 
 nav ul li a {
 	padding: 0 5px;
+	font-size: 16px;
 	font-weight: bold;
 	color: rgb(245,173,115);
 }
@@ -137,14 +150,14 @@ input {
 }
 
 .field label {
-	font-size: 24px;
+	font-size: 20px;
 	text-transform: lowercase;
 	color: rgb(247,242,223);
 	font-weight:normal;
 }
 
 .field input {
-	font-size: 24px;
+	font-size: 20px;
 	border-color: rgb(0,0,0);
 	background: rgb(247,242,223);
 	margin: 10px;
@@ -186,4 +199,16 @@ input[type="submit"]:hover {
 
 .signin {
 	display: inline;
+}
+
+select {
+	font-size: 20px;
+	background: rgb(247,242,223);
+	border-width: 0px;
+    padding:8px 18px;
+	color: rgb(87,85,30);
+}
+
+select option{
+	background: rgba(247,242,223,0.5);
 }

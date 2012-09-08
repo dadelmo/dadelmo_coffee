@@ -11,20 +11,21 @@
     
   <% end %>
 
-Orden a pedirse el día <%= @customer_order.order.order_date %> <br/>
-Entrega tentativa: <%= @customer_order.order.delivery_date %>
+
+<p> Orden a pedirse el día <%= @customer_order.order.order_date %> </p> 
+<p> Entrega tentativa: <%= @customer_order.order.delivery_date %> </p> 
 <%= form_for(:customer_order, :url => add_item_path) do |f| %>
   <%= f.hidden_field :id, :value => @customer_order.id %>
 
  <br />
-
+ <div class="field">
   <%= select_tag :p_id, options_from_collection_for_select(@products, :id, :display_name) %>
 
   <%= number_field_tag :p_qty, nil, :placeholder => 'Cantidad', :autocomplete => 'off', :min => 0 %>
 
     <%= f.submit "Agregar cápsulas" %>
 <% end %>
-
+  </div>
 <% unless @customer_order.customer_order_line_products.empty? %>
 
 <table>
@@ -51,11 +52,6 @@ Entrega tentativa: <%= @customer_order.order.delivery_date %>
 	
   </tr>
 <% end %>
-  <tr>
-    <th>Total <%= "#{@total.to_f/100}€" %></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 </table>
+<h3>Total <%= "#{@total.to_f/100}€" %></h3>
 <% end %>

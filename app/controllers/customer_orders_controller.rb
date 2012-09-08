@@ -37,7 +37,7 @@ class CustomerOrdersController < ApplicationController
   # GET /customer_orders/1/edit
   def edit
     @customer_order = CustomerOrder.find(params[:id])
-    @products = Product.all
+    @products = Product.where(:active => true)
     @total = @customer_order.customer_order_line_products.map(&:price_per_item_in_cents).sum
   end
 
